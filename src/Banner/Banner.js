@@ -1,5 +1,4 @@
 import React from 'react'
-import { notInitialized } from 'react-redux/es/utils/useSyncExternalStore';
 import './Banner.css'
 
 const Banner = () => {
@@ -7,9 +6,23 @@ const Banner = () => {
     <header className='banner' style={{
         backgroundImage:`url("https://images.ctfassets.net/4cd45et68cgf/7JiW5JIJZaNi0LBJXQCuON/28ee69e49f0ca93e29adc4464e82f358/EN-US_MyNameS1_Teaser_Solo_Horizontal_RGB_PRE.jpg?w=2560")`,
         backgroundPosition:"center center",
-        // backgroundRepeat:"repeat-x",
+        // backgroundRepeat:"no-repeat",
     }}>
-        <h1 className="movie__title"> movie name</h1>
+
+      <div className="banner-contents">
+            <h1 className="banner__title"> Movie Name</h1>
+            <div className="banner_button">
+            <button className='banner__button'>Play</button>
+            <button className='banner__button'>Add My list</button>
+            </div>
+
+         <div className="banner_description">
+          <h1>This is test description</h1>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti ratione placeat beatae distinctio illo hic unde nam consectetur dignissimos recusandae.</p>
+        </div>
+      </div>
+
+      <div className='banner--fadeButton'/>
     </header>
   )
 };

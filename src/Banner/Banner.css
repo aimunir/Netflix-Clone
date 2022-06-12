@@ -1,3 +1,48 @@
 .banner{
+    position: relative;
     height: 400px;
+    color: aliceblue;
+    object-fit: contain;
+}
+
+.banner-contents{
+    margin-left:40px;
+    padding-top: 140px;
+}
+
+.banner__title{ 
+    font-size: 3rem;
+    letter-spacing: .1rem;
+    padding-bottom: 10px;
+   
+}
+
+.banner__button{
+    border: none;
+    outline: none;
+    font-size: 700;
+    cursor: pointer;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: .2vw;
+    margin-right: 10px;
+    color: white;
+    background-color: rgb(59, 64, 64);
+}
+
+.banner__button:hover{
+    background-color: rgb(233, 228, 228);
+    color: black;
+}
+
+.banner_description{ 
+    width: 40rem;
+    line-height: 1.6;
+    max-width: 460px;
+    text-transform: capitalize;
+    
+}
+
+.banner--fadeButton{
+    font-size: 600;
 }
