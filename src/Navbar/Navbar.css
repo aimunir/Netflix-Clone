@@ -5,6 +5,13 @@
     padding:20px;
     height: 30px;
     z-index: 1;
+     
+    /* Animation add */
+    transition-timing-function: ease-out;
+    transition: all 0.5s;
+    
+
+
 }
 
 .nav img{

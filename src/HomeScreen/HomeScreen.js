@@ -5,13 +5,11 @@ import Banner from '../Banner/Banner'
  
  const HomeScreen = () => {
    return (
-     <div>
+     <div className='home-screen'>
              {/* navbar */}
-                  <Navbar/>
-                                
-                    
-        {/* banner */}
-                    <Banner/>
+                  <Navbar/>                
+             {/* banner */}
+                <Banner/>
         {/* row */}
 
 
