@@ -1,7 +1,29 @@
-import React from 'react'
+import axios from 'axios';
+import requests from '../Requests';
+import React, { useEffect, useState } from 'react'
 import './Banner.css'
 
 const Banner = () => {
+
+  const [movie,setMovie]=useState([]);
+  
+  
+  useEffect(() => {
+      async function fetchData(){
+        const request=await axios.get(requests.fetchNetflixOriginals);
+        setMovie(
+          request.data.reasults[
+                      Math.floor(Math.random() * request.data.reasults.length-1)
+          ]
+          );
+          return request;
+      }
+      fetchData();
+
+  },[]);
+
+  console.log(movie)
+
   return (
     <header className='banner' style={{
         backgroundImage:`url("https://images.ctfassets.net/4cd45et68cgf/7JiW5JIJZaNi0LBJXQCuON/28ee69e49f0ca93e29adc4464e82f358/EN-US_MyNameS1_Teaser_Solo_Horizontal_RGB_PRE.jpg?w=2560")`,
