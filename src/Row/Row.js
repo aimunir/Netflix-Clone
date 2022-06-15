@@ -3,7 +3,7 @@ import './Row.css'
 
 function Row() {
   return (
-    <div>Row</div>
+    <div>Movie Row here</div>
   )
 }
 
