@@ -7,18 +7,74 @@ const Banner = () => {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
-    async function fetchData() {
-      const request = await axios.get(requests.fetchNetflixOriginals);
-      setMovie(
-        request.data.reasults[
-                    Math.floor(Math.random() * request.data.reasults.length-1)
-        ]
-        );
-        return request;
-      // const res = await axios.get(
-      //   process.env.REACT_APP_API_URL + requests.fetchTrending);
-      // setMovie(res.data.results);
-    }
+    // async function fetchData() {
+    //   const request = await axios.get(requests.fetchNetflixOriginals);
+    //   console.log(request.data.results);
+    //   setMovie(
+    //     request.data.results[
+    //       Math.floor(Math.random() * request.data.results.length - 1)
+    //     ]
+    //   );
+    //   return request;
+    // const res = await axios.get(
+    //   process.env.REACT_APP_API_URL + requests.fetchTrending);
+    // setMovie(res.data.results);
+
+    const fetchData = async () => {
+      console.log(requests.fetchNetflixOriginals);
+      await axios
+        .get(requests.fetchNetflixOriginals)
+        .then((response) => {
+          console.log(response);
+          setMovie(
+            response.data.results[
+              Math.floor(Math.random() * response.data.results.length - 1)
+            ]
+          );
+        })
+        .catch((error) => {
+          // this.setState({ error: true });
+        });
+
+
+
+
+        console.log(requests.fetchTrending);
+        await axios
+          .get(requests.fetchTrending)
+          .then((response) => {
+            console.log(response);
+            setMovie(
+              response.data.results[
+                Math.floor(Math.random() * response.data.results.length - 1)
+              ]
+            );
+          })
+          .catch((error) => {
+            // this.setState({ error: true });
+          });
+
+          console.log(requests.fetchTopRated);
+          await axios
+            .get(requests.fetchTopRated)
+            .then((response) => {
+              console.log(response);
+              setMovie(
+                response.data.results[
+                  Math.floor(Math.random() * response.data.results.length - 1)
+                ]
+              );
+            })
+            .catch((error) => {
+              // this.setState({ error: true });
+            });
+
+
+          
+
+
+    };
+
     fetchData();
   }, []);
 
@@ -26,20 +82,19 @@ const Banner = () => {
     <header
       className="banner"
       style={{
-        backgroundImage: `url("https://images.ctfassets.net/4cd45et68cgf/7JiW5JIJZaNi0LBJXQCuON/28ee69e49f0ca93e29adc4464e82f358/EN-US_MyNameS1_Teaser_Solo_Horizontal_RGB_PRE.jpg?w=2560")`,
+        backgroundImage: `url("http://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
         backgroundPosition: "center center",
         // backgroundRepeat:"no-repeat",
       }}
     >
       <div className="banner-contents">
-        <h1 className="banner__title"> Movie Name</h1>
+        <h1 className="banner__title"> {movie?.title ||movie?.name ||movie?.original_name}</h1>
         <div className="banner_button">
           <button className="banner__button">Play</button>
           <button className="banner__button">Add My list</button>
         </div>
 
         <div className="banner_description">
-          <h1>This is test description</h1>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti
             ratione placeat beatae distinctio illo hic unde nam consectetur
