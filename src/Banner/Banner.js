@@ -21,7 +21,6 @@ const Banner = () => {
     // setMovie(res.data.results);
 
     const fetchData = async () => {
-      console.log(requests.fetchNetflixOriginals);
       await axios
         .get(requests.fetchNetflixOriginals)
         .then((response) => {
@@ -68,11 +67,6 @@ const Banner = () => {
             .catch((error) => {
               // this.setState({ error: true });
             });
-
-
-          
-
-
     };
 
     fetchData();
