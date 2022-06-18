@@ -9,6 +9,7 @@
    return (
      <div className='home-screen'>
              {/* navbar */}
+             
                   <Navbar/>                
              {/* banner */}
                 <Banner/>
