@@ -7,19 +7,6 @@ const Banner = () => {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
-    // async function fetchData() {
-    //   const request = await axios.get(requests.fetchNetflixOriginals);
-    //   console.log(request.data.results);
-    //   setMovie(
-    //     request.data.results[
-    //       Math.floor(Math.random() * request.data.results.length - 1)
-    //     ]
-    //   );
-    //   return request;
-    // const res = await axios.get(
-    //   process.env.REACT_APP_API_URL + requests.fetchTrending);
-    // setMovie(res.data.results);
-
     const fetchData = async () => {
       await axios
         .get(requests.fetchNetflixOriginals)
@@ -38,35 +25,35 @@ const Banner = () => {
 
 
 
-        console.log(requests.fetchTrending);
-        await axios
-          .get(requests.fetchTrending)
-          .then((response) => {
-            console.log(response);
-            setMovie(
-              response.data.results[
-                Math.floor(Math.random() * response.data.results.length - 1)
-              ]
-            );
-          })
-          .catch((error) => {
-            // this.setState({ error: true });
-          });
+        // console.log(requests.fetchTrending);
+        // await axios
+        //   .get(requests.fetchTrending)
+        //   .then((response) => {
+        //     console.log(response);
+        //     setMovie(
+        //       response.data.results[
+        //         Math.floor(Math.random() * response.data.results.length - 1)
+        //       ]
+        //     );
+        //   })
+        //   .catch((error) => {
+        //     // this.setState({ error: true });
+        //   });
 
-          console.log(requests.fetchTopRated);
-          await axios
-            .get(requests.fetchTopRated)
-            .then((response) => {
-              console.log(response);
-              setMovie(
-                response.data.results[
-                  Math.floor(Math.random() * response.data.results.length - 1)
-                ]
-              );
-            })
-            .catch((error) => {
-              // this.setState({ error: true });
-            });
+        //   console.log(requests.fetchTopRated);
+        //   await axios
+        //     .get(requests.fetchTopRated)
+        //     .then((response) => {
+        //       console.log(response);
+        //       setMovie(
+        //         response.data.results[
+        //           Math.floor(Math.random() * response.data.results.length - 1)
+        //         ]
+        //       );
+        //     })
+        //     .catch((error) => {
+        //       // this.setState({ error: true });
+        //     });
     };
 
     fetchData();

@@ -1,8 +1,10 @@
 .banner{
     position: relative;
+    width: 100%;
     height: 400px;
     color: aliceblue;
     object-fit: contain;
+
 }
 
 .banner-contents{
