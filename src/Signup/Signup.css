@@ -1,0 +1,15 @@
+.signup__container{
+    
+}
+
+.input__section form input{ 
+outline: 0;
+padding: 10px;
+width: 20%;
+margin: 3px;
+border-radius: 5px;
+}
+
+.input__section h1{ 
+    font-size: 1rem;
+}
