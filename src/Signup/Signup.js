@@ -1,14 +1,30 @@
 import React, { useRef } from "react";
-import { auth } from "../firebase";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
 import "./Signup.css";
 
 const SignUp = () => {
+ 
+   const email = " munirpundracse@gmail.com";
+   const password = "1234";
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
   const register = (e) => {
     e.preventDefault();
-    auth.createUserWithEmailAndPassword();
+    const auth = getAuth(); 
+   createUserWithEmailAndPassword(auth,email,password)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    console.log(user);
+    
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode, errorMessage);
+    
+  });
   };
 
   const signIn = (e) => {
