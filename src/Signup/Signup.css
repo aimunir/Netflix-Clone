@@ -1,10 +1,7 @@
 .signup__container{
-    height:95%;
+    height:100%;
     width: 95%;
-    box-shadow: 0 3px 10px rgba(18, 17, 17, 0.2);
 }
-
-
 
 .input__section form input {
   outline: 0;
@@ -26,5 +23,21 @@
   border: none;
   padding: 7px 17px;
   margin-top: 5px;
+  cursor: pointer;
+}
+
+#footer-line{
+  margin: 10px;
+  color: gray;
+}
+
+#footer-signup{
+  color: white;
+  font-weight: 400;
+}
+
+#footer-signup:hover{
+  color: rgb(62, 62, 241);
+  text-decoration: underline;
   cursor: pointer;
 }
