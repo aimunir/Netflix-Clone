@@ -1,29 +1,21 @@
-import React, { useRef } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import React, {useState} from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth} from "../firebasedb";
 
 import "./Signup.css";
 
 const SignUp = () => {
- 
-   const email = " munirpundracse@gmail.com";
-   const password = "1234";
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
+ const [email,setEmail]=useState('');
+ const [password,setPassword]=useState('');
 
   const register = (e) => {
     e.preventDefault();
-    const auth = getAuth(); 
    createUserWithEmailAndPassword(auth,email,password)
-  .then((userCredential) => {
-    const user = userCredential.user;
-    console.log(user);
-    
+  .then((auth) => {
+    console.log(auth);
   })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
-    
+  .catch((error) => {   
+    console.log(error);   
   });
   };
 
@@ -31,19 +23,29 @@ const SignUp = () => {
     e.preventDefault();
   };
 
+  const changeEmail = (e) => {
+    setEmail(e.target.value);
+    console.log(email);
+  }
+  const changePassword = (e) => {
+    setPassword(e.target.value);
+    console.log(password);
+  }
+
   return (
     <div className="signup__container">
       <div className="input__section">
         <h3 style={{ margin: 0 }}>Sign In</h3>
         <form>
-          <input  ref={emailRef} type="email" name="" id="" placeholder="Enter Your Email" />{" "}
+          <input  onChange={changeEmail} type="email" name="" id="" placeholder="Enter Your Email" value={email} />{" "}
           <br />
           <input
-          ref={passwordRef}
+          onChange={changePassword}
             type="password"
             name=""
             id=""
             placeholder="Enter your password"
+            value={password} 
           />
           <br />
           <button className="sign__btn" type="submit" onClick={signIn}>
